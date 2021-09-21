@@ -11,6 +11,9 @@ export interface ICustomWorld extends World {
   feature?: messages.Pickle;
   context?: BrowserContext;
   page?: Page;
+
+  baseUrl?: string;
+
 }
 
 export class CustomWorld extends World implements ICustomWorld {

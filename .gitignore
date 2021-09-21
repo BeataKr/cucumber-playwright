@@ -66,6 +66,7 @@ typings/
 reports/*.html
 reports/*.json
 traces/
+harfiles/
 
 #build
 build

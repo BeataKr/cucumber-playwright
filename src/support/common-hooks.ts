@@ -37,8 +37,6 @@ BeforeAll(async function () {
       browser = await chromium.launch(browserOptions);
   }
   await ensureDir(`${process.env.TRACEFILES_DIR}`);
-  await ensureDir(`${process.env.HARFILES_DIR}`);
-   
 });
 
 Before({ tags: '@ignore' }, async function () {
@@ -59,8 +57,6 @@ Before(async function (this: ICustomWorld, { pickle }: ITestCaseHookParameter) {
   this.context = await browser.newContext({
     acceptDownloads: true,
     extraHTTPHeaders: { 'ngsw-bypass': '' },
-    recordVideo: process.env.PWVIDEO ? { dir: 'screenshots' } : undefined,
-    recordHar: process.env.HARFILES_DIR ? { path: 'harfiles' } : undefined,
   });
 
   await this.context.tracing.start({ screenshots: true, snapshots: true });

@@ -21,6 +21,7 @@ export class CustomWorld extends World implements ICustomWorld {
     super(options);
   }
   debug = false;
+  baseUrl = process.env.BASE_URL;
 }
 
 setWorldConstructor(CustomWorld);

@@ -13,17 +13,6 @@ const common = `
   --publish-quiet
   `;
 
-const getWorldParams = () => {
-  const params = {
-    baseUrl:
-      process.env.DR_REGION_TYPE == 'secondary'
-        ? process.env.SECONDARY_INGRESS_URL
-        : process.env.BASE_URL,
-  };
-
-  return `--world-parameters ${JSON.stringify({ params })}`;
-};
-
 module.exports = {
-  default: `${common} ${getWorldParams()}`,
+  default: `${common}`,
 };

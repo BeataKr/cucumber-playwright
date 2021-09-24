@@ -5,8 +5,8 @@ import { assert } from 'chai';
 let store: Store;
 
 Given('Go to the main page of Fusion Store', async function (this: ICustomWorld) {
-  store = new Store(this.page!,this.baseUrl!);
-  await store.load();
+  store = new Store(this.page!);
+  await store.load(this.baseUrl!);
 });
 
 When('User searches application by {string}', async function (this: ICustomWorld, author: string) {

@@ -3,11 +3,8 @@ import { Page } from 'playwright';
 export class Store {
 
   page!: Page;
-  baseUrl!: string;
-
-  constructor(page: Page, baseUrl: string){
+  constructor(page: Page){
     this.page = page;
-    this.baseUrl = baseUrl
   }
 
   private groupOfTitles = '[class*="group-title"]:not([class*="sub-group-title"])';
@@ -16,7 +13,7 @@ export class Store {
   
   private appCards = 'fs-app-card';
 
-  async load() {
+  async load(baseUrl: string) {
     await this.page.route('https://consent.cookiebot.com/uc.js', async (route) => {
       await route.fulfill({
         status: 200,
@@ -24,7 +21,7 @@ export class Store {
         body: JSON.stringify({}),
       });
     });
-    await this.page.goto(this.baseUrl, { waitUntil: 'networkidle', timeout: 120000 });
+    await this.page.goto(baseUrl, { waitUntil: 'networkidle', timeout: 120000 });
     await this.page.waitForSelector(this.appCards, { timeout: 120000 });
     await this.page.evaluate(() => {
       localStorage.setItem('store.liveBanner', '{}');

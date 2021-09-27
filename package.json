@@ -18,7 +18,8 @@
     "steps-usage": "cucumber-js features/**/*.feature --dry-run",
     "all": "cucumber-js features/**/*.feature",
     "pretest": "rimraf ./traces/* ./harfiles/* ./reports/* ./screenshots/*",
-    "test": "cucumber-js"
+    "test": "cucumber-js",
+    "posttest": "cucumber-js --format=json | cucumber-junit > reports/report.xml"
   },
   "engines": {
     "node": ">=14"

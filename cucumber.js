@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const common = `
   --require-module ts-node/register
   --require src/**/*.ts
@@ -9,16 +11,9 @@ const common = `
   --format @cucumber/pretty-formatter
   --format-options ${JSON.stringify({ snippetInterface: 'async-await' })}
   --publish-quiet
+  --parallel 4
   `;
 
-const getWorldParams = () => {
-  const params = {
-    foo: 'bar',
-  };
-
-  return `--world-parameters ${JSON.stringify({ params })}`;
-};
-
 module.exports = {
-  default: `${common} ${getWorldParams()}`,
+  default: `${common}`,
 };

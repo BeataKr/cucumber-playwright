@@ -18,7 +18,7 @@
     "steps-usage": "cucumber-js features/**/*.feature --dry-run",
     "all": "cucumber-js features/**/*.feature",
     "pretest": "rimraf ./traces/* ./harfiles/* ./reports/* ./screenshots/*",
-    "test": "cucumber-js"
+    "test": "cucumber-js --parallel 2"
   },
   "engines": {
     "node": ">=14"

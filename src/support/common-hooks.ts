@@ -77,9 +77,9 @@ After(async function (this: ICustomWorld, { result }: ITestCaseHookParameter) {
     if (result.status !== Status.PASSED) {
       const image = await this.page?.screenshot();
       image && (await this.attach(image, 'image/png'));
+      await this.context?.tracing.stop({ path: `${process.env.TRACEFILES_DIR}/${testName}-trace.zip` });
     }
   }
-  await this.context?.tracing.stop({ path: `${process.env.TRACEFILES_DIR}/${testName}-trace.zip` });
   await this.page?.close();
   await this.context?.close();
 });

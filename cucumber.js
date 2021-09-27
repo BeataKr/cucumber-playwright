@@ -11,6 +11,7 @@ const common = `
   --format @cucumber/pretty-formatter
   --format-options ${JSON.stringify({ snippetInterface: 'async-await' })}
   --publish-quiet
+  --parallel 4
   `;
 
 module.exports = {

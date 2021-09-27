@@ -18,7 +18,7 @@
     "steps-usage": "cucumber-js features/**/*.feature --dry-run",
     "all": "cucumber-js features/**/*.feature",
     "pretest": "rimraf ./traces/* ./harfiles/* ./reports/* ./screenshots/*",
-    "test": "cucumber-js --parallel 2"
+    "test": "cucumber-js"
   },
   "engines": {
     "node": ">=14"
@@ -56,6 +56,7 @@
     "@types/node": "16.9.1",
     "@typescript-eslint/eslint-plugin": "4.31.1",
     "@typescript-eslint/parser": "4.31.1",
+    "cucumber-junit": "^1.7.1",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-import": "2.24.2",
